@@ -53,12 +53,7 @@ func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
 
 // Friends is the resolver for the friends field.
 func (r *userResolver) Friends(ctx context.Context, u *model.User) ([]*model.User, error) {
-	return []*model.User{
-		{
-			ID: "1",
-			Name: "Jamari",
-		},
-	},nil
+	return u.Friends,nil
 }
 
 // Mutation returns MutationResolver implementation.
