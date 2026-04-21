@@ -13,13 +13,12 @@ import (
 	"github.com/google/uuid"
 )
 
-// Mutation resolver
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
 	
 	var createdByUser *model.User
 
 
-	for _,user := range r.Users {
+	for _,user := range r.UserData {
 		if  user.ID == input.UserID {
 			createdByUser = user
 			break
@@ -37,24 +36,19 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 		User: createdByUser,
 	}
 
-	r.TodosData = append(r.TodosData, createdTodo)
+	r.TodoData = append(r.TodoData, createdTodo)
 	
 	return createdTodo , nil
 }
 
 // Query resolvers
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	return r.TodosData, nil
+	return r.TodoData, nil
 }
 
 // Users is the resolver for the users field.
 func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
-	return []*model.User{
-		{
-			ID:   "1",
-			Name: "Tester",
-		},
-	}, nil
+	return r.UserData, nil
 }
 
 // Friends is the resolver for the friends field.

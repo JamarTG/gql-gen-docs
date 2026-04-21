@@ -8,6 +8,6 @@ import "example/graph/model"
 // here.
 
 type Resolver struct{
-	TodosData []*model.Todo
-	Users []*model.User
+	TodoData []*model.Todo
+	UserData []*model.User
 }

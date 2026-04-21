@@ -21,7 +21,7 @@ const defaultPort = "8080"
 func main() {
 
 	r := &graph.Resolver{
-		TodosData: []*model.Todo{
+		TodoData: []*model.Todo{
 			{
 				ID:   "1",
 				Text: "Learn GraphQL",
@@ -41,7 +41,7 @@ func main() {
 				},
 			},
 		},
-		Users: []*model.User{
+		UserData: []*model.User{
 			{
 				ID:   "u1",
 				Name: "Jamari",
