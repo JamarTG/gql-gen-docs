@@ -1,0 +1,16 @@
+// We need a name for the project
+
+mkdir example 
+cd example
+go mod init <project name>
+
+// gets the tool - syntax means its locally
+go get -tool github.com/99designs/gqlgen
+
+
+// Update a schema
+
+Update the schema
+ - Run the command `go run github.com/99designs/gqlgen generate` (Models are updated)
+ -  
+
