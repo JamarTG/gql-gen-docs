@@ -7,10 +7,15 @@ import (
 	"github.com/google/uuid"
 )
 
+// This is where Resolver is embedded as a pointer
+
 type mutationResolver struct {
 	*Resolver
 }
 
+// mutationResolver has Resolver embedded.
+// *model.Todo these are usually resolvers because 
+// importing from anywhere always starts with the package name
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
 	
 	var createdByUser *model.User
